@@ -1,0 +1,21 @@
+# Template file for 'redkite'
+pkgname=redkite
+version=0.8.1
+revision=1
+build_style=cmake
+makedepends="cairo-devel"
+short_desc="Small GUI toolkit"
+maintainer="Lorem <notloremipsum@protonmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/geontime/redkite"
+distfiles="https://github.com/geontime/redkite/archive/v${version}.tar.gz"
+checksum=d723adb2e7adbdfb9dc2c83d6f5950dc6dd131e071518a3e5f9ff933acacf7de
+
+redkite-devel_package() {
+	short_desc+=" - development files"
+	depends="cairo-devel ${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove "usr/lib/*.a"
+	}
+}
