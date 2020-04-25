@@ -1,0 +1,19 @@
+# Template file for 'geonkick'
+pkgname=geonkick
+version=2.0.0
+revision=1
+build_style=cmake
+hostmakedepends="pkg-config"
+makedepends="redkite-devel libsndfile-devel jack-devel lilv-devel rapidjson"
+depends="hicolor-icon-theme"
+short_desc="Free software percussion synthesizer"
+maintainer="Lorem <notloremipsum@protonmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/geontime/geonkick"
+distfiles="https://github.com/geontime/geonkick/archive/v${version}.tar.gz"
+checksum=0bdf58d944daf607b8d85e8c5b9f8b1612b7005b3e326a3e7c282768f4c612bc
+
+post_install() {
+	vinstall data/geonkick.desktop 644 usr/share/applications/
+	vdoc doc/Documentation.md
+}
